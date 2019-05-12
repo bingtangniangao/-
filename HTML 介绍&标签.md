@@ -97,15 +97,18 @@
 
 ###iframe和 a
 
-```
+**`单击 a 标签在 iframe 标签中打开`**
+
+```html
+
 <iframe src="#" frameborder="0" name="xxx"></iframe>
 <a href="http://qq.com" target=xxx>qq</a>
-也可以是绝对路径
+也可以是绝对路径  ,
 ```
 
 ####targer
 
-```
+```html
   <a href="http://qq.com" target="_blank">_blank</a>
   <a href="http://baidu.com" target="_self">self</a>
   <a href="http://baidu.com" target="_parent">parent</a>
@@ -119,21 +122,23 @@
 
 > 1 下载 页面, 但是我没成功!
 >
-> ​	- `<a href="http://qq.com" download> 下载</a>`
+>  - `<a href="http://qq.com" download> 下载</a>`
+>  - 如果是Content-Type: text/html 用上面
 >
 > 2  用  http 协议
 >
 >  - Content-Type: application/octet-stream
 >
->    
+
+#### href使用
 
 > `<a href="qq.com"> 下载</a>`
 >
 > -  http://   , 不能去掉, 否则是当成文件
 >
-> ​     `<a href="//qq.com"> 下载</a>`   
+> ​     `<a href="//qq.com"> 下载</a>`   //file 文本文件
 >
-> - 不写当成 file 协议,按本身来
+> - 不写当成 file 协议,按本身来 ,
 >
 >  
 
@@ -171,6 +176,8 @@
 
 > a 的href情况:
 >
+> `#`qq.com 是跳转,不发生请求
+>
 > 无协议地址  
 >
 > ​		//qq.com
@@ -184,18 +191,20 @@
 > ​	`<a href="?name=frank"> qq</a>`      
 >
 >   - 自动发起 get 请求
->   - 写#是不发起请求的,
+>   - `写#是不发起请求的`,
 >       - 如果有 10 个h1 标签,页面会跳
 >
-> 伪协议
+> ####`伪协议` 点击后不跳转
+>
+> ​      JavaScript: 类似 http:  ,但没有这个协议
 >
 > ​	a 标签没有href 就是 span
 >
-> ​	a 标签 的 href 是""  会刷新页面
+> ​	a 标签 的 href 是`""  `会刷新页面
 >
 > `	<a href="JavaScript:alert(1);"> 下载</a>`  
 >
->  `	<a href=":;"> 下载</a>`  
+> `	<a href="JavaScript:;"> 下载</a>`   避免#跳转
 
 总结
 
@@ -228,7 +237,7 @@
 > - `<form action ="index.html" method="post">`
 > - `<form action ="users" method="post">`
 >
-> from必须有 submit
+> from必须有` submit`,才能提交
 >
 > from 不支持 put,只支持 get 和 post
 >
@@ -240,6 +249,8 @@
 >
 > form 也有 target=''_blank''  也可配合 iframe
 
+> 密码是中文时,  
+>
 > `Content-Type: application/x-www-form-urlencoded`
 >
 > ​     www-form-urlencoded   会把除英文外的字符转换成 utf-8编码
@@ -248,27 +259,45 @@
 
 > `<input type="submit" value="button">`
 >
-> `<button>提交</button>`
+> `<button>提交</button>`  //自动升级为 submit 按钮  ,如果 type 为 button,就不会提交
 >
 > submit 会自动提交,如回车后,   普通按钮不会
 >
 > checkbox  复选框
 >
-> `<label for="xx"> 用户名</label> <input type="text" name="xxx"`
+> `<label for="xxx"> 用户名</label> <input type="text"  id="xxx"`
 >
-> 改 : `<label for="xx"> 用户名 <input type="text" name="xxx"</label>` name 必须写
+> 改 : `<label > 用户名 <input type="text" name="xxx"</label>` name 必须写
 >
 > radio 单选框
 >
+> ​	- name 要相同, value 值要写
+>
 > select 分组
 >
->    option  
+> option  
 >
 > ​       disabled 禁用
 >
 > ​       selected 默认
 >
+> ​	multiple 多选
+>
+> ```
+> <select name="分组" multiple>
+> 	<option value="">-</option>
+> 	<option value="1">1</option>
+> 	<option value="2"  disabled>2</option>
+> 	<option value="3" selected>3</option>
+> ```
+>
+> 
+>
 > textarea
+>
+>    style="resize:none"  控制放大缩小  
+>
+>    可以 加 width 和 height
 >
 >  - cols 列
 >  - rows 行
@@ -279,21 +308,39 @@
 
 ####table
 
+> <table border=1>
+>
 > thead
 >
 > tbody
 >
 > tfoot
 >
->   tr
+> tr
 >
 > ​     th  td
 >
 > colgroup 
 >
-> `     <col width=100 bgcolor=red>`
+> `     <col width=100 bgcolor=red>`  不用写 px
 >
 > 自动纠正顺序
+>
+> ```
+> <table>
+> 	<colgroup>
+> 		<col width=100>
+> 		<col width=70>
+> 	</colgroup>
+>  <thead>
+>  	<tr>
+>  		<th>项目</th>
+>  	</tr>
+>  </thead>
+>  <tbody></tbody>
+>  <tfoot></tfoot>
+> </table>
+> ```
 >
 > 
 
