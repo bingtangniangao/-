@@ -1,4 +1,4 @@
-## HTML 介绍
+## 9HTML 介绍
 
 常用标签
 
@@ -158,7 +158,7 @@
 >
 > ​	 	`npm set prefix ~/.npm`
 >
-> ​		 `PATH="$HOME/.npm/bin:​$PATH"`
+> ​		 `PATH="$HOME/.npm/bin:$PATH"`
 >
 > ​		` PATH="./node_modules/.bin:$PATH"`
 >
@@ -232,12 +232,18 @@
 >
 >  - 默认是 get 所以,要加 method="post"
 >
->    get 是获取,post 是提交数据
+> get 是获取,post 是提交数据
 >
 > - `<form action ="index.html" method="post">`
 > - `<form action ="users" method="post">`
 >
-> from必须有` submit`,才能提交
+> from必须有` submit`,才能提交  
+>
+> ```html
+> <from> <input type="submit" value="提交">  <input name="密码">
+> ```
+>
+> 
 >
 > from 不支持 put,只支持 get 和 post
 >
